@@ -1,0 +1,65 @@
+/* Add these styles to your 'adhome.css' file or link it to your component */
+
+/* General styles */
+.admin-home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .admin-home-content {
+    padding: 1rem;
+    flex: 1;
+    overflow: auto;
+  }
+  
+  /* Style the search input */
+  .search-container {
+    margin: 1rem 0;
+  }
+  
+  /* Style the table headers */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  thead {
+    background-color: #f0f0f0;
+  }
+  
+  /* Add horizontal scrolling on small screens */
+  @media (max-width: 768px) {
+    /* Media query for devices with a max width of 768px (typical for mobile phones) */
+    th, td {
+      display: block;
+      padding: 10px 0;
+      border: none;
+    }
+  
+    td::before {
+      content: attr(data-label);
+      font-weight: bold;
+    }
+  }
+  
+  /* Pagination styles */
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  
+  .page-info {
+    margin: 0 1rem;
+  }
+  
+  
+  
+  

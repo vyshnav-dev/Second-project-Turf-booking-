@@ -1,0 +1,47 @@
+/* Details.css */
+
+/* Default styles for larger screens */
+.details-container {
+    display: flex;
+    width: 70rem;
+    height: auto;
+    margin: 50px auto;
+    background-color: rgba(240, 248, 255, 0.347);
+    border-radius: 20px;
+    
+  }
+  
+  .image-carousel {
+    width: 30%;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+  }
+  
+  .details-info {
+    
+    margin-left: 8rem;
+    width: 50%;
+    text-align: center;
+    
+  }
+  
+  /* Responsive styles for smaller screens (e.g., mobile) */
+  @media (max-width: 768px) {
+    .details-container { 
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .image-carousel {
+      width: 100%;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+  
+    .details-info {
+      width: 100%;
+      margin-left: auto;
+    }
+  }
+  

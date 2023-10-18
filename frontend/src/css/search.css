@@ -1,0 +1,41 @@
+/* Add this CSS to your stylesheet or a separate CSS file */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff62;
+    border: 1px solid #cccccc;
+    height: 30px;
+    width:24rem;
+    margin-left: 40px;
+    border-radius: 20px;
+    padding: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 10rem;
+    margin-top: 5px;
+  }
+  
+  .search-input {
+    flex: 1;
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    outline: none;
+    height: 30px;
+  }
+  
+  .search-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  

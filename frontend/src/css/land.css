@@ -1,0 +1,171 @@
+/* Default styles for larger screens */
+.land1 {
+    height: 75vh;
+    background-color: #060b1e;
+    position: relative;
+    display: flex;
+}
+
+.land1-2 {
+    width: 600px;
+    position: absolute;
+    z-index: 999;
+    color: aliceblue;
+    top: 20%;
+    left: 10%;
+}
+
+.land1-3 img {
+    margin-left: 60rem;
+    height: 25rem;
+    margin-top: 5rem;
+}
+
+.inner1 {
+    position: absolute;
+    margin-top: 25rem;
+    margin-left: 43rem;
+}
+
+/* .land3 {
+    position: relative;
+    background-color: azure;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+.land4 {
+    width: 100%;
+    height: 60vh;
+    background-color: #D9D9D9;
+}
+
+.raja {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7rem;
+}
+
+.raja p {
+    text-align: center;
+    color: black;
+}
+
+.fa-solid {
+    font-size: 4rem;
+}
+
+.fa-regular {
+    font-size: 4rem;
+}
+
+.newone1{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+     transition: transform 0.5s ease; 
+}
+    .newone1:hover {
+ transform: translateY(-25px); 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.land3 {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: azure;
+    flex-wrap: wrap;
+    
+    
+  }
+  
+  .newone1 {
+    position: relative;
+    max-width: 18rem;
+    height: 20rem;
+    background-color: #fff;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+    border-radius: 15px;
+  }
+  
+  .newone1:hover {
+    height: 320px;
+  }
+  
+  .newone1 .card-img-top {
+    max-width: 100%;
+    border-radius: 15px;
+  }
+  
+  .newone1 .card-title {
+    position: absolute;
+    margin-top: -5rem;
+    color: white;
+    text-align: center;
+  }
+  
+  .newone1 .tf2 {
+    margin-top: -3rem;
+    color: white;
+    text-align: center;
+  }
+  
+  .newone1:hover .card-title, .newone1:hover .tf2 {
+    margin-top: 30px;
+  }
+  
+  .newone1:hover .card-title {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.2s;
+  }
+  
+  .newone1:hover .tf2 {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.2s;
+  }
+  
+
+
+
+/* Mobile styles */
+/* For screens smaller than 768px (typical mobile screens) */
+@media (max-width: 767px) {
+    .land1 {
+        height: auto;
+        background-position: center center;
+    }
+
+    .land1-2 {
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .land1-3 img {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .raja {
+        margin-top: 20px;
+    }
+
+    .fa-solid,
+    .fa-regular {
+        font-size: 2rem;
+    }
+}
+
+

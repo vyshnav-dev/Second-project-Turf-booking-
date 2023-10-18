@@ -1,0 +1,10 @@
+
+  
+  
+  @media (max-width: 768px) {
+    .card {
+      position: sticky;
+    }
+  
+    /* Adjust other styles as needed */
+  }

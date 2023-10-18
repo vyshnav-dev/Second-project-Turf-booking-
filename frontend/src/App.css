@@ -1,0 +1,72 @@
+* {
+    /* margin: 0; */
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+.Toastify{
+    position: absolute;
+}
+
+/* sidebar css */
+
+.container1{
+  width: 15%;
+}
+.sidebar {
+  background-color: rgb(31, 31, 31);
+  position: sticky;
+  height: 100vh;
+  color: #fff;
+  font-family: 'Cabin';
+  width: 10rem;
+  
+}
+.top_section{
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+ 
+}
+.bars{
+  display: flex;
+  font-size: 25px;
+  margin-left: 50px;
+}
+.link{
+  display: flex;
+  color:white;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+  text-decoration: none;
+ 
+}
+.link:hover{
+  background: rgb(215, 202, 202);
+  color: black;
+
+}
+.logo{
+  font-size: 2rem;
+}
+
+.active{
+  /* background: rgb(247, 28, 28); */
+  color: white;
+}
+.icon, .link_text{
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+ 
+  .sidebar {
+    
+    position: fixed;
+   }
+   .top_section{
+    position: fixed;
+   
+  }
+}

@@ -1,0 +1,22 @@
+/* Custom responsive CSS for your AdminHeader component */
+/* For screens with a maximum width of 768px (mobile) */
+@media (max-width: 768px) {
+    .navbar {
+      font-size: 14px;
+      padding: 10px;
+      position: fixed;
+    }
+  
+    /* Adjust other styles as needed */
+  }
+  
+  /* For larger screens (e.g., tablets and desktops) */
+  @media (min-width: 769px) {
+    .navbar {
+      font-size: 16px;
+      padding: 20px;
+    }
+  
+    /* Add any other styles for larger screens */
+  }
+  

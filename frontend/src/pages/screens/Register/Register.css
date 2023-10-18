@@ -1,0 +1,74 @@
+/* * {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .last {
+    padding: 15px 10px;
+    background-image: url(https://wallpapercave.com/wp/wp3012496.jpg); 
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; 
+  background-color: red; 
+  margin:0;
+  width:100%;
+  width: 100%; 
+  height: 10
+    
+  } */
+
+  body{
+    background-image: url(https://img.freepik.com/free-vector/gradient-background-green-tones_23-2148388109.jpg?w=1060&t=st=1697546743~exp=1697547343~hmac=e896a63cdb0ec3171768d902afa4de725194ac416204ba1a17e895eaa7dae535); 
+    background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+  
+
+  }
+  .form1 {
+    /* margin-top:0 !important; */
+    
+    
+    text-align: center;
+    background-color: rgba(253, 255, 255, 0.388);
+    width: 400px;
+    height: fit-content;
+    /* padding: 15px 20px; */
+    max-width: 100%;
+    border-radius: 10px;
+    font-size: small;
+    /* margin-top: 6rem; */
+  }
+  h1,
+  p {
+    margin-bottom: 3px;
+    color: white;
+  }
+   .div1 {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 5px;
+   } 
+  /* input[type="checkbox"] {
+    margin: 0 5px;
+  } */
+ 
+  label {
+    margin: 5px;
+    /* cursor: pointer; */
+  }
+  input {
+    padding: 10px;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  /* .btn{
+    margin: 0 auto;
+    padding: 10px 15px;
+    background-color: rgb(0, 195, 255);
+    border: 1px solid white;
+  } */

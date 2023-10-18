@@ -1,0 +1,82 @@
+
+
+/* Header Styles */
+.header1class {
+    background-color: transparent;/* Header background color */
+    
+  }
+  
+  .firnav {
+    height: 80px;
+    width: 100%;
+   
+   
+  }
+  
+  .firnav .navbar-brand {
+    color: #28a745; /* Brand text color */
+    font-size: 2rem;
+  }
+  
+  /* Search Bar Styles */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    height: 30px;
+    width: 24rem;
+    margin-left: 40px;
+    border-radius: 20px;
+    padding: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 10rem;
+    margin-top: 5px;
+  }
+  
+  .search-input {
+    flex: 1;
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    outline: none;
+    height: 30px;
+  }
+  
+  /* Default Select Styles */
+  .location-select {
+    width: 7rem;
+    height: 20px;
+    margin-left: -6rem;
+    margin-top: 9px;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    border-color: transparent;
+  }
+  
+  /* Media Query for Smaller Screens (Adjust as needed) */
+  @media (max-width: 768px) {
+    
+    .firnav {
+      font-size: 1.5rem; /* Reduce font size for the header text */
+      
+    }
+
+    .sitename{
+        margin-left: 5rem;
+    }
+  
+    .search-bar {
+      width: 100%; /* Expand search bar to full width */
+      margin-left: 0; /* Remove left margin */
+      margin-right: 0; /* Remove right margin */
+    }
+  
+    .location-select {
+      width: 100%; /* Expand select element to full width */
+      margin-left: 0; /* Remove left margin */
+    }
+  }
+  
+

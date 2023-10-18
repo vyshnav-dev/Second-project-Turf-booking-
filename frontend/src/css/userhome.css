@@ -1,0 +1,70 @@
+/* Base styles for large screens */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative; /* Add this */
+  }
+  
+  .filter-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute; /* Add this */
+    z-index: 1; /* Add this to place filter options above other elements */
+    background-color: rgba(255, 255, 255, 0.8); /* Add a background to make the filter options stand out */
+    padding: 10px; /* Add padding for better visibility */
+    top: 0; /* Position at the top of the container */
+    left: 0; /* Position at the left of the container */
+    width: 100%; /* Take the full width of the container */
+  }
+  
+  .turf-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: relative; /* Add this */
+  }
+  
+  .turf-card {
+    width: 20rem;
+    margin-bottom: 20px;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
+
+  .homecard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s;
+       transition: transform 0.5s ease; 
+  }
+      .homecard:hover {
+   transform: translateY(-25px); 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Responsive styles for smaller screens (e.g., mobile devices) */
+  @media (max-width: 768px) {
+
+    .turf-cards{
+        position: relative;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .filter-buttons {
+      flex-direction: row;
+      margin-top: 20px;
+      background-color: transparent; /* Make background transparent for better mobile experience */
+      position: relative; /* Reset position for mobile layout */
+      width: auto; /* Reset width for mobile layout */
+    }
+  
+    .turf-card {
+      width: 90%;
+      
+    }
+  }
+  

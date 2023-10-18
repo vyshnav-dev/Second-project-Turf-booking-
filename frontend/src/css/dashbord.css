@@ -1,0 +1,105 @@
+.dmain-container{
+    grid-area: main;
+    overflow: auto;
+    padding: 20px 20px;
+    color: beige;
+    background-color: aliceblue;
+    height: 100vh;
+    width: 474vh;
+    
+    
+}
+
+.dmain-title{
+    display: flex;
+    justify-content: space-between;
+    color: black;
+}
+
+.dmain-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:20px;
+    margin: 15px 0;
+}
+
+.dcard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 8px 15px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dcard h1{
+    color: black;
+}
+
+.dcard:first-child {
+    background-color: rgb(255, 255, 255);
+}
+.dcard:nth-child(2) {
+    background-color: rgb(255, 255, 255);
+}
+.dcard:nth-child(3) {
+    background-color: rgb(255, 255, 255);
+}
+.dcard:nth-child(4) {
+    background-color: rgb(255, 255, 255);
+}
+
+
+.dcard-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dcard-inner h3{
+    color: black;
+}
+
+.dcard-inner i{
+    color: teal;
+}
+
+.chart{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+    margin-top: 60px;
+    height: 300px;
+    background-color: aliceblue;
+   
+}
+
+@media (max-width: 768px) {
+    .dmain-container {
+      padding: 10px; /* Reduce padding */
+      position: sticky;
+    }
+  
+    .dmain-card {
+      grid-template-columns: 1fr; /* Stack cards vertically */
+    }
+  
+    .dcard {
+      margin: 10px 0; /* Add spacing between cards */
+    }
+  
+    .chart {
+      grid-template-columns: 1fr; /* Stack charts vertically */
+    }
+  }
+
+
+/* @media screen and (max-width:992px) {
+    .grid-container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 3fr;
+        grid-template-areas: 
+        '';
+    }
+    
+} */

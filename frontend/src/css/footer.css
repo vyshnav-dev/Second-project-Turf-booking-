@@ -1,0 +1,66 @@
+.footer{
+    background: black;
+    padding-top: 50px;
+    padding-bottom: 15px;
+    
+}
+.footer__logo i{
+  color: white;
+  font-weight: 500;
+}
+.footer__logo span{
+    color: white;
+    font-weight: 500;
+}
+.footer__logo-content{
+     color: white;
+     margin-top: 15px;
+     line-height: 30px;
+}
+.quick__link{
+    border: none;
+    /* background: black; */
+}
+.quick__link a{
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    transition: 0.3s;
+}
+.quick__link a:hover{
+    color:red
+}
+.footer__link-title{
+    color: white;
+}
+.office__info{
+    color: white;
+    font-weight: 300;
+    padding-top: 1rem;
+}
+.newsletter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border: 1px solid;
+    border-radius: 50px;
+    background: rgb(49, 49, 49);
+   
+}
+.newsletter input{
+    background: transparent;
+    color: white;
+    border: none;
+    outline: none;
+}
+.newsletter span i{
+    color: white;
+}
+.footer__bottom{
+    border-top: 1px solid rgb(49, 49, 49);
+}
+.section__description{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}

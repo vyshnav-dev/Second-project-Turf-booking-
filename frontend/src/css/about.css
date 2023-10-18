@@ -1,0 +1,205 @@
+
+.about{
+    background-image: url(https://img.freepik.com/premium-photo/two-soccer-football-player-dribbling-ball-during-match-stadium-banner-design_43569-493.jpg?w=1380);
+    width: 100%;
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+.about1{
+   
+    
+    width: 100%;
+    height: 350vh;
+    background-color: white;
+    position: relative;
+   
+}
+
+.new1{
+    margin-top: 6rem;
+    position: absolute;
+   
+    width: 100%;
+    height: 60vh;
+    
+    padding: 20px;
+    background-color: green;
+    text-align: center;
+ 
+    
+}
+
+.new2{
+    position: absolute;
+    margin-top: 50rem;
+    width:60%;
+    height: 13vh;
+    background-color:green;
+    margin-left: 39rem;
+}
+
+.b1{
+    margin-top: 45rem;
+    position: absolute;
+    width:20%;
+    height: 13vh;
+    background-color:white;
+    margin-left: 24rem;
+}
+
+.new3{
+    position: absolute;
+    margin-top: 65rem;
+    width:60%;
+    height: 13vh;
+    background-color:green;
+   
+}
+
+.b2{
+    margin-top: 60rem;
+    position: absolute;
+    width:20%;
+    height: 13vh;
+    background-color:white;
+    margin-left: 58rem;
+
+}
+
+.new4{
+    position: absolute;
+    margin-top: 80rem;
+    width:60%;
+    height: 13vh;
+    background-color:green;
+    margin-left: 39rem;
+}
+
+.b3{
+    margin-top: 75rem;
+    position: absolute;
+    width:20%;
+    height: 13vh;
+    background-color:white;
+    margin-left: 20rem;
+}
+
+.new5{
+    position: absolute;
+    margin-top: 95rem;
+    width:60%;
+    height: 13vh;
+    background-color:green;
+}
+
+.b4{
+    margin-top: 90rem;
+    position: absolute;
+    width:10%;
+    height: 13vh;
+    background-color:white;
+    margin-left: 58rem;
+}
+
+.ablast{
+    margin-top: 110rem;
+    position: absolute;
+    background-color:#84dc7c;
+    width: 100%;
+    height: 55vh;
+    display: flex;
+}
+.ab1{
+    margin: auto;
+}
+
+.ab1 img{
+    width:15rem;
+    height:20rem;
+}
+
+.enddiv{
+    margin-top: 30rem;
+    position: absolute;
+    background-color:white;
+    width: 70%;
+    height: 35vh;
+    text-align: center;
+    margin-left: 15rem;
+
+}
+
+.tkk{
+    font-family: cursive;
+}
+
+@media (max-width: 768px) {
+
+    .about{
+        
+        /* width: 32rem;
+        height: auto;
+        background-repeat: no-repeat; */
+        background-size: cover;
+       
+    }
+
+    
+    
+    .stock1{
+        
+        margin-left: -22rem;
+    }
+    .new3{
+        width: 54rem;
+    }
+    .stock2{
+        margin-left: -37rem;
+    }
+
+    .b3 img{
+        width: 15rem;
+        margin-left: 2rem;
+    }
+
+   .stock3{
+    margin-left: -22rem;
+   }
+    
+   .new5{
+        width: 56rem;
+   }
+
+   .stock4{
+        margin-left:-40rem ;
+   }
+
+   .ablast{
+    margin-top: 110rem;
+    position: absolute;
+    background-color:#84dc7c;
+    width: 32rem;
+    height: auto;
+    display: flex;
+}
+
+.ab1 img{
+    width:8rem;
+    height:9rem;
+}
+.enddiv{
+    margin-top: 30rem;
+    position: absolute;
+    background-color:white;
+    text-align: center;
+   
+}
+
+.enddiv{
+    margin-left: 4rem;
+}
+
+}
