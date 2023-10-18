@@ -9,7 +9,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 
 dotenv.config();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 const app = express();
 
 // Middleware
@@ -72,7 +72,9 @@ app.use("/api/owner", ownerRoutes);
 
 if(process.env.NODE_ENV === 'production') {
   const __dirname = path.resolve();
+  console.log(__dirname,"okofm");
   app.use(express.static(path.join(__dirname, 'frontend/dist')));
+ 
 
   app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html')));
 } else{

@@ -7,7 +7,7 @@ import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 import {GoogleOAuthProvider } from '@react-oauth/google'
-import OwnerRouter from './Routers/ownerRouter.jsx'
+import OwnerRouter from './Routers/OwnerRouter.jsx'
 import UserRouter from './Routers/userRouter.jsx'
 import AdminRouter from './Routers/AdminRouter.jsx'
 
