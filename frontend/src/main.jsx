@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 import {GoogleOAuthProvider } from '@react-oauth/google'
 import OwnerRouter from './Routers/OwnerRouter.jsx'
-import UserRouter from './Routers/userRouter.jsx'
+import UserRouter from './Routers/UserRouter.jsx'
 import AdminRouter from './Routers/AdminRouter.jsx'
 
 const router = createBrowserRouter(
