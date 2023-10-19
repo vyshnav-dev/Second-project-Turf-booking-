@@ -16,7 +16,7 @@ const App = () => {
   const isAdminPage = location.pathname.startsWith('/admin')
   const isOwnerpage = location.pathname.startsWith('/owner')
 
-  axios.defaults.baseURL = "http://localhost:5000/api";
+  axios.defaults.baseURL = "https://www.spexcart.online/";
 axios.defaults.withCredentials = true;
   return (
     <>
