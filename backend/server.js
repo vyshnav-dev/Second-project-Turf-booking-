@@ -13,7 +13,7 @@ const port = process.env.PORT || 6000;
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "https://spexcart.online", credentials: true }));
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/yourdb", {
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://spexcart.online", // Adjust the origin to match your frontend URL
+    origin: "http://localhost:3000", // Adjust the origin to match your frontend URL
     methods: ["GET", "POST"],
   },
 });
