@@ -16,7 +16,7 @@ const AdPrivateRoute = () => {
     const checkAdmin = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/admin/checkAdmin",
+          "https://spexcart.online/api/admin/checkAdmin",
           {
             credentials: "include", // Include cookies in the request
           }

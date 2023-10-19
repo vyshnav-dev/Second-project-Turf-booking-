@@ -1,9 +1,16 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { Table, OverlayTrigger, Tooltip, Button, Card, Form } from "react-bootstrap";
+import {
+  Table,
+  OverlayTrigger,
+  Tooltip,
+  Button,
+  Card,
+  Form,
+} from "react-bootstrap";
 import Sidebar from "../../components/Sidebar";
-import Swal from 'sweetalert2';
-import '../../css/adTurf.css'
+import Swal from "sweetalert2";
+import "../../css/adTurf.css";
 
 function AdTurf() {
   const [turf, setTurf] = useState([]);
@@ -15,18 +22,20 @@ function AdTurf() {
   useEffect(() => {
     const fetchTurf = async () => {
       try {
-        const response = await axios.get(`/admin/turf?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}`);
+        const response = await axios.get(
+          `/admin/turf?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}`
+        );
         setTurf([...response.data.turf]);
         // You can also update the total number of pages if needed
       } catch (error) {
-        console.error('Error fetching turf:', error);
+        console.error("Error fetching turf:", error);
       }
     };
 
     fetchTurf();
-  }, [currentPage, pageSize, searchQuery,setTurf]);
+  }, [currentPage, pageSize, searchQuery, setTurf]);
 
-  console.log('efsd',turf);
+  console.log("efsd", turf);
 
   const handleConfirm = async (Id) => {
     console.log(Id);
@@ -55,12 +64,11 @@ function AdTurf() {
         });
 
         // You can also reload the data or update the state here if needed
-
       } catch (error) {
         console.log(error);
       }
     }
-  }
+  };
 
   const handleReject = async (Id) => {
     console.log(Id);
@@ -89,23 +97,21 @@ function AdTurf() {
         });
 
         // You can also reload the data or update the state here if needed
-
       } catch (error) {
         console.log(error);
       }
     }
-  }
-
+  };
 
   useEffect(() => {
     // Filter the turf data based on the search query
-    const filteredResults = turf.filter((venue) =>
-    venue.turfname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    
-    venue.ownername.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredResults = turf.filter(
+      (venue) =>
+        venue.turfname.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        venue.ownername.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredTurf(filteredResults);
-  }, [searchQuery, turf,setFilteredTurf]);
+  }, [searchQuery, turf, setFilteredTurf]);
   // const filteredTurf = turf.filter((venue) =>
   //   venue.turfname.toLowerCase().includes(searchQuery.toLowerCase()) ||
   //   venue.ownername.toLowerCase().includes(searchQuery.toLowerCase())
@@ -116,19 +122,31 @@ function AdTurf() {
     setCurrentPage(1); // Reset to the first page when searching
   };
 
-  
-
- 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'row', height: '100vh', width: '100vw', margin:'auto',backgroundColor:'lightgray',}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          height: "100vh",
+          width: "100vw",
+          margin: "auto",
+          backgroundColor: "lightgray",
+        }}
+      >
         <Sidebar />
-        
-        <Card className="landcard" style={{ width: '80%', margin: 'auto' }}>
+
+        <Card className="landcard" style={{ width: "80%", margin: "auto" }}>
           <Card.Body>
-            <h3 style={{ textAlign: 'center' }}>Turf Details</h3>
-            <div style={{ display: 'flex', justifyContent: 'end', marginBottom: '2rem' }}>
-              <Form.Group style={{ width: '18rem' }} controlId="search">
+            <h3 style={{ textAlign: "center" }}>Turf Details</h3>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                marginBottom: "2rem",
+              }}
+            >
+              <Form.Group style={{ width: "18rem" }} controlId="search">
                 <Form.Control
                   type="text"
                   placeholder="Search by turf name or owner name"
@@ -137,30 +155,30 @@ function AdTurf() {
                 />
               </Form.Group>
             </div>
-            
-              <Table striped bordered hover responsive>
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>IMAGE</th>
-                    <th>TURF NAME</th>
-                    <th>NAME</th>
-                    <th>MOBILE</th>
-                    <th>TIME</th>
-                    <th>GAME</th>
-                    <th>ADDRESS</th>
-                    <th>DESCRIPTION</th>
-                    <th>OPTION</th>
-                  </tr>
-                </thead>
-                <tbody>
+
+            <Table striped bordered hover responsive>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>IMAGE</th>
+                  <th>TURF NAME</th>
+                  <th>NAME</th>
+                  <th>MOBILE</th>
+                  <th>TIME</th>
+                  <th>GAME</th>
+                  <th>ADDRESS</th>
+                  <th>DESCRIPTION</th>
+                  <th>OPTION</th>
+                </tr>
+              </thead>
+              <tbody>
                 {filteredTurf.map((venue, index) => (
                   <tr key={venue._id}>
                     <td>{index + 1}</td>
                     <td>
                       <img
-                        style={{ height: '50px', width: '50px' }}
-                        src={`http://localhost:5000/Images/${venue.imagePath[0]}`}
+                        style={{ height: "50px", width: "50px" }}
+                        src={`https://spexcart.online/Images/${venue.imagePath[0]}`}
                         alt=""
                       />
                     </td>
@@ -168,22 +186,39 @@ function AdTurf() {
                     <td>{venue.ownername}</td>
                     <td>{venue.number}</td>
                     <td>
-  {venue.time.map((timeItem, i) => (
-    <span key={i}>#{timeItem.times} <br /></span>
-  ))}
-</td>
-                    <td>
-                      {venue.game.map((game, i) => (
-                        <span key={i}>{game}<br /></span>
+                      {venue.time.map((timeItem, i) => (
+                        <span key={i}>
+                          #{timeItem.times} <br />
+                        </span>
                       ))}
                     </td>
-                    <td >{venue.location}</td>
-                    <td style={{ width: '400px' }}>
+                    <td>
+                      {venue.game.map((game, i) => (
+                        <span key={i}>
+                          {game}
+                          <br />
+                        </span>
+                      ))}
+                    </td>
+                    <td>{venue.location}</td>
+                    <td style={{ width: "400px" }}>
                       <OverlayTrigger
                         placement="top"
-                        overlay={<Tooltip id={`tooltip-${venue._id}`}>{venue.description}</Tooltip>}
+                        overlay={
+                          <Tooltip id={`tooltip-${venue._id}`}>
+                            {venue.description}
+                          </Tooltip>
+                        }
                       >
-                        <div style={{ maxHeight: '50px', maxWidth: '400px', overflowY: 'scroll' }}>{venue.description}</div>
+                        <div
+                          style={{
+                            maxHeight: "50px",
+                            maxWidth: "400px",
+                            overflowY: "scroll",
+                          }}
+                        >
+                          {venue.description}
+                        </div>
                       </OverlayTrigger>
                     </td>
                     <td>
@@ -191,13 +226,17 @@ function AdTurf() {
                         <>
                           <Button
                             variant="success"
-                            onClick={() => { handleConfirm(venue._id) }}
+                            onClick={() => {
+                              handleConfirm(venue._id);
+                            }}
                           >
                             Accept
                           </Button>
                           <Button
                             variant="danger"
-                            onClick={() => { handleReject(venue._id) }}
+                            onClick={() => {
+                              handleReject(venue._id);
+                            }}
                           >
                             Reject
                           </Button>
@@ -207,9 +246,15 @@ function AdTurf() {
                   </tr>
                 ))}
               </tbody>
-              </Table>
-          
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+            </Table>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "1rem",
+              }}
+            >
               <Button
                 variant="secondary"
                 disabled={currentPage === 1}
@@ -217,9 +262,7 @@ function AdTurf() {
               >
                 Previous
               </Button>
-              <div style={{ margin: '0 1rem' }}>
-                Page {currentPage}
-              </div>
+              <div style={{ margin: "0 1rem" }}>Page {currentPage}</div>
               <Button
                 variant="secondary"
                 disabled={filteredTurf.length < pageSize}
@@ -228,14 +271,11 @@ function AdTurf() {
                 Next
               </Button>
             </div>
-          </Card.Body> 
+          </Card.Body>
         </Card>
-        </div>
-    
+      </div>
     </>
   );
-
 }
 
 export default AdTurf;
-

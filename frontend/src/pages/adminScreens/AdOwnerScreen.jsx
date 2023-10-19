@@ -1,25 +1,25 @@
-import Swal from 'sweetalert2';
-import { Button, Card, Table } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import Sidebar from '../../components/Sidebar';
+import Swal from "sweetalert2";
+import { Button, Card, Table } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Sidebar from "../../components/Sidebar";
 
 const AdOwnerScreen = () => {
   const headerStyle = {
-    color: 'black',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    color: "black",
+    fontWeight: "bold",
+    textAlign: "center",
   };
   const containerStyle = {
-    paddingTop: '5rem',
-    paddingLeft: '5rem',
-    paddingRight: '5rem',
-    width: '97%',
-    overflowY: 'scroll',
+    paddingTop: "5rem",
+    paddingLeft: "5rem",
+    paddingRight: "5rem",
+    width: "97%",
+    overflowY: "scroll",
   };
 
   const [owners, setOwners] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 5; // Set your desired page size here
   const [totalPages, setTotalPages] = useState(1);
@@ -39,7 +39,7 @@ const AdOwnerScreen = () => {
         setOwners(response.data.owners);
         setTotalPages(response.data.totalPages);
       } catch (error) {
-        console.error('Error fetching owners:', error);
+        console.error("Error fetching owners:", error);
       }
     };
 
@@ -48,21 +48,19 @@ const AdOwnerScreen = () => {
 
   const blockOwner = async (ownerId) => {
     const result = await Swal.fire({
-      title: 'Confirm Block Owner',
-      text: 'Are you sure you want to block this owner?',
-      icon: 'warning',
+      title: "Confirm Block Owner",
+      text: "Are you sure you want to block this owner?",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonText: 'Yes, block it!',
-      cancelButtonText: 'No, cancel!',
+      confirmButtonText: "Yes, block it!",
+      cancelButtonText: "No, cancel!",
       reverseButtons: true,
     });
 
     if (result.isConfirmed) {
       try {
-        const response = await axios.post(
-          `http://localhost:5000/api/admin/blockowner?id=${ownerId}`
-        );
-        console.log('Blocked owner:', response.data.owners);
+        const response = await axios.post(`/admin/blockowner?id=${ownerId}`);
+        console.log("Blocked owner:", response.data.owners);
         setOwners((prevOwners) =>
           prevOwners.map((owner) =>
             owner._id === ownerId ? { ...owner, isBlocked: true } : owner
@@ -76,20 +74,18 @@ const AdOwnerScreen = () => {
 
   const unblockOwner = async (ownerId) => {
     const result = await Swal.fire({
-      title: 'Confirm Unblock Owner',
-      text: 'Are you sure you want to unblock this owner?',
-      icon: 'warning',
+      title: "Confirm Unblock Owner",
+      text: "Are you sure you want to unblock this owner?",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonText: 'Yes, unblock it!',
-      cancelButtonText: 'No, cancel!',
+      confirmButtonText: "Yes, unblock it!",
+      cancelButtonText: "No, cancel!",
       reverseButtons: true,
     });
 
     if (result.isConfirmed) {
       try {
-        const response = await axios.post(
-          `http://localhost:5000/api/admin/unblockowner?id=${ownerId}`
-        );
+        const response = await axios.post(`/admin/unblockowner?id=${ownerId}`);
         console.log(response);
         setOwners((prevOwners) =>
           prevOwners.map((owner) =>
@@ -112,7 +108,15 @@ const AdOwnerScreen = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', height: '100vh', width: '100vw',backgroundColor:'lightgray' }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        height: "100vh",
+        width: "100vw",
+        backgroundColor: "lightgray",
+      }}
+    >
       <Sidebar />
       <div style={containerStyle}>
         <Card>
@@ -120,13 +124,13 @@ const AdOwnerScreen = () => {
             <h2 style={headerStyle}>Owner List</h2>
             <div
               style={{
-                display: 'flex',
-                justifyContent: 'end',
-                marginBottom: '1rem',
+                display: "flex",
+                justifyContent: "end",
+                marginBottom: "1rem",
               }}
             >
               <input
-                style={{ borderColor: 'black' }}
+                style={{ borderColor: "black" }}
                 type="text"
                 placeholder="Search by name or email"
                 value={searchQuery}
@@ -150,13 +154,19 @@ const AdOwnerScreen = () => {
                     <td>{owner.email}</td>
                     {!owner.isBlocked ? (
                       <td>
-                        <Button variant="danger" onClick={() => blockOwner(owner._id)}>
+                        <Button
+                          variant="danger"
+                          onClick={() => blockOwner(owner._id)}
+                        >
                           Block
                         </Button>
                       </td>
                     ) : (
                       <td>
-                        <Button variant="success" onClick={() => unblockOwner(owner._id)}>
+                        <Button
+                          variant="success"
+                          onClick={() => unblockOwner(owner._id)}
+                        >
                           Unblock
                         </Button>
                       </td>
@@ -165,7 +175,13 @@ const AdOwnerScreen = () => {
                 ))}
               </tbody>
             </Table>
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "1rem",
+              }}
+            >
               <Button
                 variant="secondary"
                 disabled={currentPage === 1}
@@ -173,7 +189,7 @@ const AdOwnerScreen = () => {
               >
                 Previous
               </Button>
-              <div style={{ margin: '0 1rem' }}>
+              <div style={{ margin: "0 1rem" }}>
                 Page {currentPage} of {totalPages}
               </div>
               <Button
