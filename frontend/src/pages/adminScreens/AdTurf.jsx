@@ -178,7 +178,7 @@ function AdTurf() {
                     <td>
                       <img
                         style={{ height: "50px", width: "50px" }}
-                        src={`https://spexcart.online/Images/${venue.imagePath[0]}`}
+                        src={`http://localhost:5000/Images/${venue.imagePath[0]}`}
                         alt=""
                       />
                     </td>

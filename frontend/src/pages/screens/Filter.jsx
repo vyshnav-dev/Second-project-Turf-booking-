@@ -42,7 +42,7 @@ function Filter() {
               <Card.Img
                 style={{ height: "22rem", width: "20rem" }}
                 variant="top"
-                src={`https://spexcart.online/Images/${
+                src={`http://localhost:5000/Images/${
                   item.imagePath && item.imagePath[0]
                 }`}
               />

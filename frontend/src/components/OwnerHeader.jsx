@@ -81,7 +81,7 @@ const OwnerHeader = () => {
                       style={{ width: "50px", marginRight: "-94px" }}
                       src={
                         ownerInfo.image
-                          ? `https://spexcart.online/Images/${ownerInfo.image}`
+                          ? `http://localhost:5000/Images/${ownerInfo.image}`
                           : "https://cdn.vectorstock.com/i/preview-1x/99/94/default-avatar-placeholder-profile-icon-male-vector-23889994.jpg"
                       }
                       roundedCircle
