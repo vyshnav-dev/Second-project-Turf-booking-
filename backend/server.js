@@ -32,13 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // app.use(express.static("backend/public"));
 
-//dirname configuration
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename); 
-//middlewares
-app.use("/uploads",express.static(__dirname+"/uploads"))
+
 
 
 // MongoDB Connection (adjust the URI)
@@ -103,6 +97,14 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 
+
+//dirname configuration
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename); 
+//middlewares
+app.use("/uploads",express.static(__dirname+"/uploads"))
 
 
 
