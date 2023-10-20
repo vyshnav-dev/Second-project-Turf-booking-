@@ -104,8 +104,8 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename); 
 //middlewares
-console.log(__dirname,"dfjvfdv");
-app.use(express.static(path.join(__dirname,"/uploads")))
+console.log(__dirname,"dfjv");
+app.use("/uploads",express.static(__dirname+"/uploads"))
 
 
 
