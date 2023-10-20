@@ -72,11 +72,11 @@ app.use("/api/owner", ownerRoutes);
 
 if(process.env.NODE_ENV === 'production') {
   const __dirname = path.resolve();
-  const newPath=path.join(__dirname,"..")
-  app.use(express.static(path.join(newPath, 'frontend/dist')));
+  
+  app.use(express.static(path.join(__dirname, 'frontend/dist')));
  
 
-  app.get('*', (req, res) => res.sendFile(path.resolve(newPath, 'frontend', 'dist', 'index.html')));
+  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html')));
 } else{
   app.get("/", (req, res) => res.send("Server is ready"));
 }
