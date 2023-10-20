@@ -70,7 +70,7 @@ router.post('/cancel/:id',bookingCancel)
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "backend/public/Images");
+    cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
     cb(
