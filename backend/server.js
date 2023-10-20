@@ -18,7 +18,16 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static("backend/public"));
+// app.use(express.static("backend/public"));
+
+//dirname configuration
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename); 
+//middlewares
+app.use("/Images",express.static(__dirname+"/public/Images"))
+
 
 // MongoDB Connection (adjust the URI)
 mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/yourdb", {
@@ -72,14 +81,16 @@ app.use("/api/owner", ownerRoutes);
 
 if(process.env.NODE_ENV === 'production') {
   const __dirname = path.resolve();
-  
-  app.use(express.static(path.join(__dirname, 'frontend/dist')));
+  const newPath=path.join(__dirname,"..")
+  app.use(express.static(path.join(newPath, 'frontend/dist')));
  
 
-  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html')));
+  app.get('*', (req, res) => res.sendFile(path.resolve(newPath, 'frontend', 'dist', 'index.html')));
 } else{
   app.get("/", (req, res) => res.send("Server is ready"));
 }
+
+
 
 
 
