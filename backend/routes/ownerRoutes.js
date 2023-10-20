@@ -70,7 +70,7 @@ router.get('/generate-pdf-report/:ownerId',ownerGeneratePDFReport)
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "backend/public/Images");
+    cb(null, "backend/uploads");
   },
   filename: (req, file, cb) => {
     cb(

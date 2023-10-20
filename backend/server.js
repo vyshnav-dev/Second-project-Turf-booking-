@@ -9,7 +9,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 
 dotenv.config();
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 5000;
 const app = express();
 
 // Middleware
@@ -26,7 +26,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename); 
 //middlewares
-app.use("/Images",express.static(__dirname+"/public/Images"))
+app.use("/uploads",express.static(__dirname+"/uploads"))
 
 
 // MongoDB Connection (adjust the URI)
