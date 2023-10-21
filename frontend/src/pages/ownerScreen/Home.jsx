@@ -607,7 +607,7 @@ function Home() {
               <td>
                 <img
                   style={{ height: "50px", width: "50px" }}
-                  src={`http://localhost:5000/uploads/${venue.imagePath[0]}`}
+                  src={`https://spexcart.online/Images/${venue.imagePath[0]}`}
                   alt=""
                 />
               </td>
