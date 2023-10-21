@@ -324,6 +324,7 @@ const turfdetails = asyncHandler(async (req, res) => {
       ownername,
       number,
     } = req.body;
+    console.log('sjxs',req.files)
 
     const detail = [];
 

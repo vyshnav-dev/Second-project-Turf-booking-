@@ -598,8 +598,8 @@ const payment = asyncHandler(async(req, res)=>{
                 quantity: 1,
             },
         ],
-            success_url: 'http://localhost:3000/details/success',
-            cancel_url: `http://localhost:3000/details/${turf}`,
+            success_url: 'https://spexcart.online/details/success',
+            cancel_url: `https://spexcart.online/details/${turf}`,
         })
 
         res.json({ id: session.id });
