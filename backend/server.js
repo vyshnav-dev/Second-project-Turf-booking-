@@ -18,7 +18,7 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    "https://spexcart.online",
+    // "https://spexcart.online",
     "http://localhost:3000",
   ],
   credentials: true,
