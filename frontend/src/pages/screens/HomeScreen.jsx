@@ -58,7 +58,7 @@ const HomeScreen = () => {
           {turf.map((turfItem, index) => (
             <Card className='homecard' key={index} style={{ width: '20rem', marginBottom: '20px', height: '22rem', backgroundColor: 'white' }}>
               <Link to={'/details/' + turfItem._id}>
-                <Card.Img style={{ height: '22rem', width: '20rem' }} variant="top" src={`https://spexcart.online/backend/uploads/${turfItem.imagePath[0]}`}  />
+                <Card.Img style={{ height: '22rem', width: '20rem' }} variant="top" src={`https://spexcart.online/api/backend/uploads/${turfItem.imagePath[0]}`}  />
                 <Card.Body>
                   <Card.Title style={{ position: 'absolute', marginTop: '-5rem', color: 'white' }} className='tf1'>{turfItem.turfname}</Card.Title>
                   <ListGroup.Item style={{ marginTop: '-3rem', color: 'white', textDecoration: 'none' }} className='tf2'>{turfItem.location}</ListGroup.Item>
