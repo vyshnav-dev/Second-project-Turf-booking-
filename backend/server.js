@@ -19,7 +19,7 @@ const app = express();
 const corsOptions = {
   origin: [
     "https://spexcart.online",
-    "http://localhost:3000",
+    
   ],
   credentials: true,
 };
@@ -32,16 +32,16 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // dirname configuration
-// import { dirname } from 'path';
-// import { fileURLToPath } from 'url';
-// const __filename = fileURLToPath(import.meta.url);
-// console.log("gooo",__filename);
-// const __dirname = dirname(__filename); 
-// //middlewares
-// console.log(__dirname,"dfjv");
-// app.use("/uploads",express.static(__dirname+"/uploads"))
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+console.log("gooo",__filename);
+const __dirname = dirname(__filename); 
+//middlewares
+console.log(__dirname,"dfjv");
+app.use("/Images",express.static(__dirname+"/public/Images"))
 
-app.use(express.static("backend/public"));
+// app.use(express.static("backend/public"));
 
 
 
