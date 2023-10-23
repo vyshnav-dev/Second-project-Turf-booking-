@@ -13,18 +13,18 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 // Middleware
-// app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
 
-const corsOptions = {
-  origin: [
-    "https://spexcart.online",
-    "http://localhost:3000",
-  ],
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: [
+//     "https://spexcart.online",
+//     "http://localhost:3000",
+//   ],
+//   credentials: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(cookieParser());
 app.use(express.json());
