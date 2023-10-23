@@ -14,7 +14,7 @@ import About from "../pages/screens/About.jsx";
 import Chatapp from "../pages/screens/Chatapp.jsx";
 import Success from "../pages/screens/Success.jsx";
 import Filter from "../pages/screens/Filter.jsx";
-// import Error from "../pages/ErrorScreen/Error.jsx";
+import Error from "../pages/ErrorScreen/Error.jsx";
 
 const UserRouter = () => {
   return (
@@ -26,7 +26,7 @@ const UserRouter = () => {
 
         <Route index={true} path="/" element={<LandingScreen />} />
 
-        {/* <Route path="/*" element={<Error />} /> */}
+        <Route path="/*" element={<Error />} />
 
         {/* private routes */}
         <Route path="" element={<PrivateRoute />}>
