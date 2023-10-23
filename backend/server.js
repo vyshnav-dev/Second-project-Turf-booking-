@@ -98,17 +98,17 @@ if(process.env.NODE_ENV === 'production') {
 
 
 
-//dirname configuration
-// import { dirname } from 'path';
-// import { fileURLToPath } from 'url';
-// const __filename = fileURLToPath(import.meta.url);
-// console.log("gooo",__filename);
-// const __dirname = dirname(__filename); 
-// //middlewares
-// console.log(__dirname,"dfjv");
-// app.use("/uploads",express.static(__dirname+"/uploads"))
+// dirname configuration
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+console.log("gooo",__filename);
+const __dirname = dirname(__filename); 
+//middlewares
+console.log(__dirname,"dfjv");
+app.use("/uploads",express.static(__dirname+"/uploads"))
 
-app.use(express.static("backend/uploads"));
+// app.use(express.static("backend/uploads"));
 
 
 
