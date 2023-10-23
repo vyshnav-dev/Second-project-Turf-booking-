@@ -65,7 +65,7 @@ function LandingScreen() {
               <Card.Img
                 style={{ height: "20rem", width: "18rem" }}
                 variant="top"
-                src={`http://localhost:5000/Images/${turfItem.imagePath[0]}`}
+                src={`https://spexcart.online/Images/${turfItem.imagePath[0]}`}
               />
               <Card.Body>
                 <Card.Title

@@ -71,7 +71,7 @@ const ProfileScreen = () => {
           style={{ width: "90px", marginRight: "10px" }}
           src={
             userInfo.image
-              ? `http://localhost:5000/Images/${userInfo.image}`
+              ? `https://spexcart.online/Images/${userInfo.image}`
               : "https://cdn.vectorstock.com/i/preview-1x/99/94/default-avatar-placeholder-profile-icon-male-vector-23889994.jpg"
           }
           roundedCircle

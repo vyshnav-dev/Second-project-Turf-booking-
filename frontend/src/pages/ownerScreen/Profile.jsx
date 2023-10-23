@@ -71,7 +71,7 @@ const Profile = () => {
       </div>
       
       <div style={{display:'flex',justifyContent:'center',marginTop:'20px'}}>
-        <Image style={{width:"90px",marginRight:"10px"}} src= { ownerInfo.image ?`https://spexcart.online/uploads/${ownerInfo.image}`:'https://cdn.vectorstock.com/i/preview-1x/99/94/default-avatar-placeholder-profile-icon-male-vector-23889994.jpg'} roundedCircle />
+        <Image style={{width:"90px",marginRight:"10px"}} src= { ownerInfo.image ?`https://spexcart.online/Images/${ownerInfo.image}`:'https://cdn.vectorstock.com/i/preview-1x/99/94/default-avatar-placeholder-profile-icon-male-vector-23889994.jpg'} roundedCircle />
         </div>
       <Form  onSubmit={submitHandler}>
         <Form.Group className='my-2' controlId='name'>

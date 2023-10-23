@@ -109,7 +109,7 @@ function Details() {
                     borderRadius: "10px",
                   }}
                   className="d-block w-400"
-                  src={`https://spexcart.online/uploads/${image}`}
+                  src={`https://spexcart.online/Images/${image}`}
                   alt={`Product Image ${index + 1}`}
                 />
               </Carousel.Item>
