@@ -13,18 +13,18 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "https://spexcart.online", credentials: true }));
+// app.use(cors({ origin: "https://spexcart.online", credentials: true }));
 
 
-// const corsOptions = {
-//   origin: [
-//     "https://spexcart.online",
-//     "http://localhost:3000",
-//   ],
-//   credentials: true,
-// };
+const corsOptions = {
+  origin: [
+    "https://spexcart.online",
+    "http://localhost:3000",
+  ],
+  credentials: true,
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.use(cookieParser());
 app.use(express.json());
@@ -102,6 +102,7 @@ if(process.env.NODE_ENV === 'production') {
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
+console.log("gooo",__filename);
 const __dirname = dirname(__filename); 
 //middlewares
 console.log(__dirname,"dfjv");
