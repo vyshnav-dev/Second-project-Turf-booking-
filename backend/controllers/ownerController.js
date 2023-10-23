@@ -277,6 +277,7 @@ const updateOwnerProfile = asyncHandler(async (req, res) => {
       name: updateOwner.name,
       email: updateOwner.email,
       image: updateOwner.imagePath,
+      verified:updateOwner.verified,
     });
   } else {
     res.status(404);

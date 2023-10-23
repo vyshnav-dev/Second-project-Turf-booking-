@@ -284,6 +284,8 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       name: updateUser.name,
       email: updateUser.email,
       image: updateUser.imagePath,
+      verified:updateUser.verified,
+
     });
   } else {
     res.status(404);
