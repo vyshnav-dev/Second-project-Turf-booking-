@@ -41,13 +41,7 @@ const Profile = () => {
         formData.append('email', email);
         formData.append('password', password);
         formData.append('file', image);
-          // const res = await updateProfile({
-          //   _id:userInfo._id,
-          //   name,
-          //   email,
-          //   password,
-          //   formdata: image ? new FormData().append('file', image) : undefined,
-          // }).unwrap();
+          
           console.log('kkkk',formData);
       
           const res = await updateProfile(formData).unwrap();

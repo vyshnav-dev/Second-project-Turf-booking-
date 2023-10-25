@@ -120,7 +120,7 @@ function Details() {
 
       <div className="details-info">
         <h2>{turf.turfname}</h2>
-        <p>{turf.description}</p>
+        <p style={{color:'black'}}>{turf.description}</p>
         <h4>{turf.address}</h4>
         <h4>{turf.location}</h4>
         <h4>{turf.number}</h4>
