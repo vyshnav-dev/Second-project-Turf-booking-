@@ -51,7 +51,7 @@ function Default() {
         onChange={handleLocationChange}
         value={selectedLocation}
       >
-        <option value="">Locations</option>
+        <option  value="">Locations</option>
         {locations.map((location) => (
           <option style={{color:'black'}} key={location} value={location}>
             {location}

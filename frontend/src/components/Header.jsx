@@ -55,26 +55,26 @@ const Header = () => {
                   <Default />
 
                   <LinkContainer
-                    style={{ marginRight: "4rem", fontWeight: "bold", color:'black' }}
+                    style={{ marginRight: "4rem", fontWeight: "bold",  }}
                     to="/"
                   >
                     <Nav.Link>Home</Nav.Link>
                   </LinkContainer>
                   <LinkContainer
-                    style={{ marginRight: "4rem", fontWeight: "bold",color:'black' }}
+                    style={{ marginRight: "4rem", fontWeight: "bold" }}
                     to="/about"
                   >
                     <Nav.Link>About</Nav.Link>
                   </LinkContainer>
 
                   <LinkContainer
-                    style={{ marginRight: "4rem", fontWeight: "bold",color:'black' }}
+                    style={{ marginRight: "4rem", fontWeight: "bold" }}
                     to="/venue"
                   >
                     <Nav.Link>Venues</Nav.Link>
                   </LinkContainer>
                   <LinkContainer
-                    style={{ marginRight: "4rem", fontWeight: "bold",color:'black' }}
+                    style={{ marginRight: "4rem", fontWeight: "bold" }}
                     to="/history"
                   >
                     <Nav.Link>Bookings</Nav.Link>
