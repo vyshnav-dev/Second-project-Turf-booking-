@@ -1,6 +1,6 @@
 const image =[
     {
-      url:'https://d2jx2rerrg6sh3.cloudfront.net/image-handler/ts/20230320055147/ri/750/src/images/news/ImageForNews_742320_1679349106715629.jpg' , 
+      url:'https://img.freepik.com/premium-photo/moment-ball-goes-off-foot-free-kick_950002-165453.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1697500800&semt=ais' , 
     },
     {
         url:'https://wallpapercave.com/wp/wp11078770.jpg' ,
