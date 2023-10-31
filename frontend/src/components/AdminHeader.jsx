@@ -28,12 +28,14 @@ const AdminHeader = () => {
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
-          <LinkContainer to="/admin">
-            <Navbar.Brand href="/">
+        <div style={{marginLeft:'10rem'}}>
+          <LinkContainer to="/admin/dashbord">
+            <Navbar.Brand href="">
               <span style={{ color: "green", fontSize: "2rem" }}>G</span>
               reenGlide <span></span>[ADMIN]
             </Navbar.Brand>
           </LinkContainer>
+          </div>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
