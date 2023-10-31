@@ -1,10 +1,51 @@
+/* Existing Styles */
+.landcard {
+  width: 80%;
+  margin: auto;
+  /* position: relative; */
+  overflow: auto;
+  margin-left: 16rem;
+}
 
-  
-  
-  @media (max-width: 768px) {
-    .card {
-      position: sticky;
-    }
-  
-    /* Adjust other styles as needed */
+.landcard h3 {
+  text-align: center;
+}
+
+.landcard .form-group {
+  width: 18rem;
+}
+
+/* Add responsive styles here */
+@media (max-width: 768px) {
+  .landcard {
+      width: 100%; /* Make the card full width on small screens */
+      margin-left: 0;
   }
+
+  .landcard h3 {
+      font-size: 1.4em; /* Increase the font size for better visibility on small screens */
+  }
+
+  .landcard .form-group {
+      width: 100%; /* Make the search input full width on small screens */
+  }
+
+  .table {
+      font-size: 0.9em; /* Reduce font size for table data on small screens */
+  }
+
+  .table thead {
+      display: none; /* Hide table header on small screens */
+  }
+
+  .table td {
+      display: block;
+      text-align: left;
+  }
+
+  .table td:nth-child(2) {
+      text-align: center; /* Center-align the image column on small screens */
+  }
+}
+
+/* Additional responsive styles can be added as needed */

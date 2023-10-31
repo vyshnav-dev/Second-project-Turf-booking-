@@ -1,59 +1,47 @@
-import { FaUserAlt ,FaRegCalendarCheck,FaCampground,FaTh} from 'react-icons/fa'
-
-import { NavLink } from 'react-router-dom'
-import '../App.css'
-
-
-
-// eslint-disable-next-line react/prop-types
-const Sidebar = ({children}) => {
-
-    const menuItem = [
-      {
-        path:'/admin/dashbord',
-        name:'Dashbord',
-        icon:<FaTh/>
-      },
-      {
-        path:'/admin/user',
-        name:'Users',
-        icon:<FaUserAlt/>
-      },
-      {
-        path:'/admin/owner',
-        name:'Owners',
-        icon: <FaUserAlt/>
-      },
-      {
-        path:'/admin/turf',
-        name:'Turf',
-        icon:<FaCampground/>
-      },
-      {
-        path:'/admin/booking',
-        name: 'Bookings',
-        icon: <FaRegCalendarCheck/>
-      }
-]
+import '../css/sidebar.css'
+const Sidebar = () => {
   return (
-  <div className='container1'>
-    <div  className='sidebar'>
-        <div className="top_section">
-            {/* <h1  className='logo'>ADMIN</h1> */}
-            
-        </div>
-        {
-            menuItem.map((item, index)=>(
-                <NavLink to={item.path} key={index} className='link' activeclassName='active' >
-                    <div className="icon">{item.icon}</div>
-                    <div className="link_text">{item.name}</div>
-                </NavLink>
-            ))
-        }
-    </div>
-    <main>{children}</main>
-  </div>
-  )
+    
+
+<div className="s-layout__sidebar">
+  <a className="s-sidebar__trigger" href="#0">
+     <i className="fa fa-bars"></i>
+  </a>
+
+  <nav className="s-sidebar__nav">
+     <ul>
+        <li>
+           <a className="s-sidebar__nav-link" href="/admin/dashbord">
+              <i className="fa fa-home"></i><em>Dashbord</em>
+           </a>
+        </li>
+        <li>
+           <a className="s-sidebar__nav-link" href="/admin/user">
+             <i className="fa fa-user"></i><em>User</em>
+           </a>
+        </li>
+        <li>
+           <a className="s-sidebar__nav-link" href="/admin/owner">
+              <i className="fa fa-user-secret"></i><em>Owner</em>
+           </a>
+        </li>
+        <li>
+           <a className="s-sidebar__nav-link" href="/admin/turf">
+              <i className="fa fa-building"></i><em>Turf</em>
+           </a>
+        </li>
+        <li>
+           <a className="s-sidebar__nav-link" href="/admin/booking">
+              <i className="fa fa-calendar"></i><em>Bookings</em>
+           </a>
+        </li>
+     </ul>
+  </nav>
+</div>
+
+
+
+  );
 }
 
-export default Sidebar
+export default Sidebar;

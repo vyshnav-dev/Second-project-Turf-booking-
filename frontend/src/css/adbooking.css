@@ -1,0 +1,13 @@
+.adbookcard{
+    margin-left: 16rem;
+    width: 80%;
+    height: 30rem;
+}
+
+@media (max-width: 768px) {
+
+    .adbookcard{
+        margin-left: 0;
+        width: 100%;
+    }
+}

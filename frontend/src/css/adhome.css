@@ -1,65 +1,44 @@
-/* Add these styles to your 'adhome.css' file or link it to your component */
-
-/* General styles */
+/* AdminHome.css */
 .admin-home-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative; /* Add position: relative to the container */
+}
+
+.admin-content {
+  width: 100%;
+  flex: 1;
+  padding: 1rem;
+  background-color: lightgray;
+  position: relative; /* Add position: relative to the content */
+}
+
+.search-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  /* Adjust styles for larger screens (e.g., tablets and desktops) */
+  .admin-home-container {
+    flex-direction: row;
   }
-  
-  .admin-home-content {
-    padding: 1rem;
-    flex: 1;
-    overflow: auto;
-  }
-  
-  /* Style the search input */
-  .search-container {
-    margin: 1rem 0;
-  }
-  
-  /* Style the table headers */
-  table {
+
+  .admin-content {
+    margin-left: 18rem;
     width: 100%;
-    border-collapse: collapse;
   }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-  }
-  
-  thead {
-    background-color: #f0f0f0;
-  }
-  
-  /* Add horizontal scrolling on small screens */
-  @media (max-width: 768px) {
-    /* Media query for devices with a max width of 768px (typical for mobile phones) */
-    th, td {
-      display: block;
-      padding: 10px 0;
-      border: none;
-    }
-  
-    td::before {
-      content: attr(data-label);
-      font-weight: bold;
-    }
-  }
-  
-  /* Pagination styles */
-  .pagination-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem 0;
-  }
-  
-  .page-info {
-    margin: 0 1rem;
-  }
-  
+}
   
   
   

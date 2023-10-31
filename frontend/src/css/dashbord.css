@@ -1,29 +1,33 @@
-.dmain-container{
+/* Existing Styles */
+
+.dashcover{
+    background-color: aliceblue;
+}
+.dmain-container {
     grid-area: main;
     overflow: auto;
     padding: 20px 20px;
     color: beige;
     background-color: aliceblue;
     height: 100vh;
-    width: 474vh;
-    
-    
+    width: 90%;
+    margin-left: 14rem;
 }
 
-.dmain-title{
+.dmain-title {
     display: flex;
     justify-content: space-between;
     color: black;
 }
 
-.dmain-card{
+.dmain-card {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap:20px;
+    gap: 20px;
     margin: 15px 0;
 }
 
-.dcard{
+.dcard {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -32,74 +36,76 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.dcard h1{
+.dcard h1 {
     color: black;
 }
 
 .dcard:first-child {
     background-color: rgb(255, 255, 255);
 }
+
 .dcard:nth-child(2) {
     background-color: rgb(255, 255, 255);
 }
+
 .dcard:nth-child(3) {
     background-color: rgb(255, 255, 255);
 }
+
 .dcard:nth-child(4) {
     background-color: rgb(255, 255, 255);
 }
 
-
-.dcard-inner{
+.dcard-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.dcard-inner h3{
+.dcard-inner h3 {
     color: black;
 }
 
-.dcard-inner i{
+.dcard-inner i {
     color: teal;
 }
 
-.chart{
+.chart {
     display: flex;
     grid-template-columns: 1fr 1fr;
-    gap:20px;
+    gap: 20px;
     margin-top: 60px;
     height: 300px;
     background-color: aliceblue;
-   
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
     .dmain-container {
-      padding: 10px; /* Reduce padding */
-      position: sticky;
+        padding: 10px;
+        position: sticky;
+        margin-left: 0;
+        background-color: aliceblue;
+
     }
-  
-    .dmain-card {
-      grid-template-columns: 1fr; /* Stack cards vertically */
+
+    .dmain-title h3 {
+        font-size: 1.2em;
     }
-  
-    .dcard {
-      margin: 10px 0; /* Add spacing between cards */
-    }
-  
+
     .chart {
-      grid-template-columns: 1fr; /* Stack charts vertically */
+        flex-direction: column;
     }
-  }
+
+    .chart > div {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .dcard {
+        margin: 10px 0;
+        width: 100%;
+    }
+}
 
 
-/* @media screen and (max-width:992px) {
-    .grid-container{
-        grid-template-columns: 1fr;
-        grid-template-rows: 0.2fr 3fr;
-        grid-template-areas: 
-        '';
-    }
-    
-} */

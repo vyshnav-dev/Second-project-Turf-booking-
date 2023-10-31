@@ -1,4 +1,3 @@
-
 import path from "path";
 import express from "express";
 import http from "http";
@@ -13,14 +12,10 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 // Middleware
-// app.use(cors({ origin: "https://spexcart.online", credentials: true }));
 
 
 const corsOptions = {
-  origin: [
-    "https://spexcart.online",
-    
-  ],
+  origin: ["https://spexcart.online"],
   credentials: true,
 };
 
@@ -30,21 +25,15 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
 // dirname configuration
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
-console.log("gooo",__filename);
-const __dirname = dirname(__filename); 
+console.log("gooo", __filename);
+const __dirname = dirname(__filename);
 //middlewares
-console.log(__dirname,"dfjv");
-app.use("/Images",express.static(__dirname+"/public/Images"))
-
-// app.use(express.static("backend/public"));
-
-
-
+console.log(__dirname, "dfjv");
+app.use("/Images", express.static(__dirname + "/public/Images"));
 
 // MongoDB Connection (adjust the URI)
 mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/yourdb", {
@@ -59,9 +48,6 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
   },
 });
-
-
-
 
 // Socket.io
 io.on("connection", (socket) => {
@@ -87,7 +73,6 @@ io.on("connection", (socket) => {
 
 // Routes
 
-
 import userRoutes from "./routes/userRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import ownerRoutes from "./routes/ownerRoutes.js";
@@ -96,22 +81,17 @@ app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/owner", ownerRoutes);
 
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
-  const newPath=path.join(__dirname,"..")
-  app.use(express.static(path.join(newPath, 'frontend/dist')));
- 
+  const newPath = path.join(__dirname, "..");
+  app.use(express.static(path.join(newPath, "frontend/dist")));
 
-  app.get('*', (req, res) => res.sendFile(path.resolve(newPath, 'frontend', 'dist', 'index.html')));
-} else{
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(newPath, "frontend", "dist", "index.html"))
+  );
+} else {
   app.get("/", (req, res) => res.send("Server is ready"));
 }
-
-
-
-
-
-
 
 // Error Handling Middleware
 app.use((req, res, next) => {

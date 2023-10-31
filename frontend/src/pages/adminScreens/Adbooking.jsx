@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Table, Card, Button, Form } from "react-bootstrap";
 import Sidebar from "../../components/Sidebar";
+import '../../css/adbooking.css'
+
 
 function Adbooking() {
   const [turf, setTurf] = useState([]);
@@ -13,17 +15,18 @@ function Adbooking() {
   useEffect(() => {
     const fetchTurf = async () => {
       try {
-        const response = await axios.get(
-          `/admin/booking?page=${currentPage}&limit=${pageSize}&search=${searchQuery}`
-        );
+        const response = await axios.get(`/admin/booking?page=${currentPage}&limit=${pageSize}&search=${searchQuery}`);
         setTurf([...response.data.turf]);
       } catch (error) {
-        console.error("Error fetching booking:", error);
+        console.error('Error fetching booking:', error);
       }
     };
 
     fetchTurf();
-  }, [currentPage, searchQuery, setTurf]);
+  }, [currentPage, searchQuery,setTurf]);
+
+  
+
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -32,25 +35,20 @@ function Adbooking() {
     <>
       <div
         style={{
-          display: "flex",
-          flexDirection: "row",
-          height: "100vh",
-          width: "100vw",
-          backgroundColor: "lightgray",
+          display: 'flex',
+          flexDirection: 'row',
+          height: '100vh',
+          width: '100vw',
+          backgroundColor:'lightgray',
+          margin:'auto'
         }}
       >
         <Sidebar />
-        <Card style={{ width: "70%", margin: "auto", position: "sticky" }}>
+        <Card className="adbookcard" >
           <Card.Body>
-            <h3 style={{ textAlign: "center" }}>Booking Details</h3>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "end",
-                marginBottom: "2rem",
-              }}
-            >
-              <Form.Group style={{ width: "18rem" }} controlId="search">
+            <h3 style={{ textAlign: 'center' }}>Booking Details</h3>
+            <div style={{ display: 'flex', justifyContent: 'end', marginBottom: '2rem' }}>
+              <Form.Group style={{ width: '18rem' }} controlId="search">
                 <Form.Control
                   type="text"
                   placeholder="Search by name, mobile, or turf name"
@@ -60,11 +58,8 @@ function Adbooking() {
               </Form.Group>
             </div>
             <Table
-              style={{ marginTop: "3rem", width: "100%", margin: "auto" }}
-              striped
-              bordered
-              hover
-              responsive
+              style={{ marginTop: '3rem', width: '100%', margin: 'auto' }}
+              striped bordered hover responsive
               variant="dark"
             >
               <thead>
@@ -87,7 +82,9 @@ function Adbooking() {
                     <td>{lists.phoneNumber}</td>
                     <td>{lists.turfname}</td>
                     <td>
-                      {new Date(lists.selectedDate).toLocaleDateString("en-GB")}
+                      {new Date(lists.selectedDate).toLocaleDateString(
+                        'en-GB'
+                      )}
                     </td>
                     <td>{lists.selectedTime}</td>
                     <td>{lists.selectedGame}</td>
@@ -98,9 +95,9 @@ function Adbooking() {
             </Table>
             <div
               style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "1rem",
+                display: 'flex',
+                justifyContent: 'center',
+                marginTop: '1rem',
               }}
             >
               <Button
@@ -110,7 +107,9 @@ function Adbooking() {
               >
                 Previous
               </Button>
-              <div style={{ margin: "0 1rem" }}>Page {currentPage}</div>
+              <div style={{ margin: '0 1rem' }}>
+                Page {currentPage}
+              </div>
               <Button
                 variant="secondary"
                 disabled={turf.length < pageSize}

@@ -1,59 +1,18 @@
-import {
-  BarChart,
-  Line,
-  LineChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
 import "../../css/ownerdashbord.css";
-import { useEffect, useState } from "react";
+import { Suspense, lazy } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 function Owdashbord() {
   const { ownerInfo } = useSelector((state) => state.owner);
-  const Id = ownerInfo._id;
 
-  const [monthlyBookings, setMonthlyBookings] = useState([]);
+  const Owdashdiv = lazy(() => import("../../components/Owdashdiv"));
 
-  const [counts, setCounts] = useState({
-    userCount: "Loading...",
-    ownerCount: "Loading...",
-    turfCount: "Loading...",
-    bookingCount: "Loading...",
-  });
+  const Owdashlinechart = lazy(() =>
+    import("../../components/Owdashlinechart")
+  );
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(`/owner/owner-monthlydata/${Id}`); // Replace with your API endpoint
-        setMonthlyBookings(response.data);
-      } catch (error) {
-        console.error("Error fetching monthly bookings:", error);
-      }
-    }
-
-    fetchData();
-  }, [setMonthlyBookings]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(`/owner/owner-dashbord/${Id}`); // Replace with your API endpoint
-        const { userCount, turfCount, bookingCount } = response.data;
-        setCounts({ userCount, turfCount, bookingCount });
-      } catch (error) {
-        console.error("Error fetching counts:", error);
-      }
-    }
-
-    fetchData();
-  }, [setCounts]);
+  const Owdashbarchart = lazy(() => import("../../components/Owdashbarchart"));
 
   const generatePDFReport = async () => {
     try {
@@ -90,115 +49,17 @@ function Owdashbord() {
       <div className="omain-title">
         <h3>DASHBORD</h3>
       </div>
-      <div className="omain-card">
-        <div className="ocard">
-          <div className="ocard-inner">
-            <h3>Users</h3>
-            <i className="fa-solid fa-users"></i>
-          </div>
-          <h1>{counts.userCount}</h1>
-        </div>
-        <div className="ocard">
-          <div className="ocard-inner">
-            <h3>Turf</h3>
-            <i className="fa-solid fa-futbol"></i>
-          </div>
-          <h1>{counts.turfCount}</h1>
-        </div>
-        <div className="ocard">
-          <div className="ocard-inner">
-            <h3>Booking</h3>
-            <i className="fa-regular fa-calendar-check"></i>
-          </div>
-          <h1>{counts.bookingCount}</h1>
-        </div>
-      </div>
-      <div className="ochart">
-        <ResponsiveContainer width="50%" height="100%">
-          <BarChart
-            width={500}
-            height={200}
-            data={monthlyBookings}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis
-              dataKey="_id.month"
-              tickFormatter={(month) => {
-                const monthNames = [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "Jul",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ];
-                return monthNames[month - 1];
-              }}
-            />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="count" name=" Bookings" fill="#8884d8" />
-          </BarChart>
-        </ResponsiveContainer>
 
-        <ResponsiveContainer width="50%" height="100%">
-          <LineChart
-            width={500}
-            height={300}
-            data={monthlyBookings} // Use monthly bookings data here
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis
-              dataKey="_id.month"
-              tickFormatter={(month) => {
-                const monthNames = [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "Jul",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ];
-                return monthNames[month - 1];
-              }}
-            />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line
-              type="monotone"
-              dataKey="count"
-              name="Bookings"
-              stroke="#8884d8"
-              activeDot={{ r: 8 }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Owdashdiv />
+      </Suspense>
+      <div className="ochart">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Owdashbarchart />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Owdashlinechart />
+        </Suspense>
       </div>
       <div
         style={{ display: "flex", justifyContent: "end", marginTop: "2rem" }}
