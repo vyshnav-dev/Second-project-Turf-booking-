@@ -15,7 +15,7 @@ import Booking from "../models/bookingModel.js";
 import PDFDocument from 'pdfkit';
 
 import fs from 'fs';
-
+// -----login controller-----//
 const authAdmin = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -34,6 +34,7 @@ const authAdmin = asyncHandler(async (req, res) => {
   }
 });
 
+// ----- register controller-----//
 const registerAdmin = asyncHandler(async (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
@@ -73,6 +74,8 @@ const registerAdmin = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "Register User" });
 });
 
+// -----logout controller-----//
+
 const logoutAdmin = asyncHandler(async (req, res) => {
   res.cookie("Adjwt", "", {
     httpOnly: true,
@@ -81,6 +84,7 @@ const logoutAdmin = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "Admin Logged out" });
 });
 
+// -----user data controller-----//
 const userData = asyncHandler(async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // Get the page number from the query or default to page 1
@@ -119,6 +123,7 @@ function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
+// ----- userblock controller-----//
 
 const userBlock = asyncHandler(async (req, res) => {
   try {
@@ -134,6 +139,7 @@ const userBlock = asyncHandler(async (req, res) => {
   }
 });
 
+// ----- user unblock controller-----//
 const userUnBlock = asyncHandler(async (req, res) => {
   try {
     const userId = req.query.id;
@@ -147,6 +153,8 @@ const userUnBlock = asyncHandler(async (req, res) => {
     throw error;
   }
 });
+
+// -----owner data controller-----//
 
 const ownerData = asyncHandler(async (req, res) => {
   try {
@@ -184,7 +192,7 @@ const ownerData = asyncHandler(async (req, res) => {
 
 
 
-
+// -----owner block controller-----//
 
 const ownerBlock = asyncHandler(async (req, res) => {
   try {
@@ -201,6 +209,8 @@ const ownerBlock = asyncHandler(async (req, res) => {
   }
 });
 
+// -----owner unblock controller-----//
+
 const ownerUnBlock = asyncHandler(async (req, res) => {
   try {
     const ownerId = req.query.id;
@@ -215,6 +225,7 @@ const ownerUnBlock = asyncHandler(async (req, res) => {
   }
 });
 
+// -----admin jwt check controller-----//
 const checkAdmin = asyncHandler(async (req, res) => {
   const token = req.cookies.Adjwt;
   if (!token) {
@@ -228,6 +239,8 @@ const checkAdmin = asyncHandler(async (req, res) => {
     return res.status(401).json({ message: "Unauthorized" });
   }
 });
+
+// -----turf details controller-----//
 
 const turfData = asyncHandler(async (req, res) => {
   try {
@@ -270,7 +283,7 @@ const turfData = asyncHandler(async (req, res) => {
   }
 });
 
-
+// -----turf confirming controller-----//
 
 const confirmTurf = asyncHandler(async (req, res) => {
   try {
@@ -288,6 +301,8 @@ const confirmTurf = asyncHandler(async (req, res) => {
   }
 });
 
+// -----turf reject controller-----//
+
 const rejectTurf = asyncHandler(async (req, res) => {
   try {
     const Id = req.params.id;
@@ -304,6 +319,7 @@ const rejectTurf = asyncHandler(async (req, res) => {
   }
 });
 
+// -----booking data controller-----//
 const bookingData = asyncHandler(async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
@@ -334,6 +350,8 @@ const bookingData = asyncHandler(async (req, res) => {
     throw error;
   }
 });
+
+// -----all details count controller-----//
 
 const countData = asyncHandler(async (req, res) => {
   console.log('kittumoo');
@@ -381,6 +399,7 @@ const fetchMonthlyBookings = asyncHandler(async (req, res) => {
   }
 });
 
+// ----- controller-----//
 
 const generatePDFReport = asyncHandler(async (req, res) => {
   try {

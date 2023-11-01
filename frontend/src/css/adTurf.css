@@ -34,13 +34,11 @@
       font-size: 0.9em; /* Reduce font size for table data on small screens */
   }
 
-  .table thead {
-      display: none; /* Hide table header on small screens */
-  }
+  
 
   .table td {
-      display: block;
-      text-align: left;
+      
+      text-align: center;
   }
 
   .table td:nth-child(2) {
