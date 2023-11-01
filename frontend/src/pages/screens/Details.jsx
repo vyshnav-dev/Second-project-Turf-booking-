@@ -136,6 +136,7 @@ function Details() {
                 value={selectedDate.toISOString().split("T")[0]}
                 onChange={handleDateChange}
                 min={new Date().toISOString().split("T")[0]}
+                required
               />
             </div>
             <div style={{ paddingTop: "10px" }}>
@@ -144,6 +145,7 @@ function Details() {
                 style={{ width: "15rem", height: "42px", borderRadius: "10px" }}
                 value={selectedGame}
                 onChange={handleGameChange}
+                required
               >
                 <option value="">Select a game</option>
                 {turf.game &&
@@ -161,6 +163,7 @@ function Details() {
                 style={{ width: "15rem", height: "42px", borderRadius: "10px" }}
                 value={selectedTime}
                 onChange={(e) => setSelectedTime(e.target.value)}
+                required
               >
                 <option value="">Select a time</option>
                 {turf.time &&
