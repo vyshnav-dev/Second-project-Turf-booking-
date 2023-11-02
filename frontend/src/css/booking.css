@@ -1,83 +1,117 @@
 /* Existing CSS */
-
 h4 {
-    font-size: 16px;
-    font-weight: bolder;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.list-booking {
+  background-color: rgba(255, 255, 255, 0.425);
+}
+
+.no {
+  width: 5%;
+  text-align: center;
+}
+
+.name {
+  width: 15%;
+  text-align: center;
+}
+
+.time {
+  width: 30%;
+  text-align: center;
+}
+
+.game {
+  width: 25%;
+  text-align: center;
+}
+
+.status {
+  width: 25%;
+  text-align: center;
+}
+
+/* New CSS for Pagination and Search Controls */
+.pagination-search-controls {
+  margin: auto;
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.pagination button {
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+  color: #888;
+}
+
+.limit select {
+  padding: 0.2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+}
+
+.search input {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .outer{
+    overflow-x: scroll;
   }
-  
-  .list-booking {
-    background-color: rgba(255, 255, 255, 0.425);
+
+  .bkheaddiv{
+    width: 35rem;
   }
-  
-  .no {
-    width: 5%;
+
+  .bkdatadiv{
+    width: 35rem;
+  }
+
+  .no, .name, .time, .game, .status {
+    width: 100%;
     text-align: center;
   }
-  
-  .name {
-    width: 15%;
-    text-align: center;
-  }
-  
-  .time {
-    width: 30%;
-    text-align: center;
-  }
-  
-  .game {
-    width: 25%;
-    text-align: center;
-  }
-  
-  .status {
-    width: 25%;
-    text-align: center;
-  }
-  
-  /* New CSS for Pagination and Search Controls */
-  
+}
+
+@media screen and (max-width: 576px) {
   .pagination-search-controls {
-    margin: auto;
-    width: 15rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    padding: 0.5rem;
-    background-color: white;
-    border-radius: 12px;
-    font-size: 12px;
+    width: 100%;
   }
-  
+}
+
+@media screen and (max-width: 480px) {
   .pagination button {
-    cursor: pointer;
-    padding: 0.2rem 0.5rem;
-    margin: 0 0.2rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #333;
+    padding: 0.2rem 0.3rem;
+    margin: 0 0.1rem;
   }
-  
-  .pagination button:disabled {
-    cursor: not-allowed;
-    background-color: #ccc;
-    color: #888;
+
+  .limit select, .search input {
+    padding: 0.2rem 0.3rem;
   }
-  
-  .limit select {
-    padding: 0.2rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #333;
-  }
-  
-  .search input {
-    padding: 0.2rem 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #333;
-  }
-  
+}

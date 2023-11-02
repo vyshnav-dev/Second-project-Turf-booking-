@@ -399,7 +399,7 @@ const fetchMonthlyBookings = asyncHandler(async (req, res) => {
   }
 });
 
-// ----- controller-----//
+// -----generate report controller-----//
 
 const generatePDFReport = asyncHandler(async (req, res) => {
   try {

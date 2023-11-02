@@ -103,7 +103,7 @@ function Booking() {
           />
         </div>
 
-        <div style={tbhead}>
+        <div className="bkheaddiv"  style={tbhead}>
           <h4 className="no">No</h4>
           <h4 className="name">TURF NAME</h4>
           <h4 className="name">DATE</h4>
@@ -112,7 +112,7 @@ function Booking() {
           <h4 className="game">PRICE</h4>
           <h4 className="status">STATUS</h4>
         </div>
-        <div>
+        <div className="bkdatadiv">
           {list.map((booking, index) => (
             <div className="list-booking" key={index} style={tableBody}>
               <h5 className="no">{index + 1}</h5>

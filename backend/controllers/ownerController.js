@@ -24,6 +24,8 @@ import jwt from "jsonwebtoken";
 
 import nodemailer from "nodemailer";
 
+// -----owner login controller-----//
+
 const authOwner = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -53,6 +55,7 @@ const authOwner = asyncHandler(async (req, res) => {
   }
 });
 
+// -----verify otp controller-----//
 const verifyOTP = asyncHandler(async (req, res) => {
   const { email, otp } = req.body;
 
@@ -238,6 +241,8 @@ const registerOwner = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "Register owner" });
 });
 
+
+// ----- logout controller-----//
 const logoutOwner = asyncHandler(async (req, res) => {
   res.cookie("jwt", "", {
     httpOnly: true,
@@ -246,6 +251,8 @@ const logoutOwner = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "Owner Logged out" });
 });
 
+
+// -----profile controller-----//
 const getOwnerProfile = asyncHandler(async (req, res) => {
   const owner = {
     _id: req.owner._id,
@@ -256,6 +263,7 @@ const getOwnerProfile = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "Owner profile" });
 });
 
+// -----update profile controller-----//
 const updateOwnerProfile = asyncHandler(async (req, res) => {
   const owner = await Owner.findById(req.owner._id);
 
@@ -285,6 +293,8 @@ const updateOwnerProfile = asyncHandler(async (req, res) => {
   }
 });
 
+// -----jwt authentication controller-----//
+
 const checkOwner = asyncHandler(async (req, res) => {
   const token = req.cookies.owjwt;
    
@@ -300,6 +310,8 @@ const checkOwner = asyncHandler(async (req, res) => {
   }
 });
 
+// -----owner block check controller-----//
+
 const getOwnerStatus = asyncHandler(async (req, res) => {
   const ownerId = req.params.Id; // Get user ID from the route parameter
   const owner = await Owner.findById(ownerId);
@@ -310,6 +322,8 @@ const getOwnerStatus = asyncHandler(async (req, res) => {
     res.status(404).json({ message: "User not found" });
   }
 });
+
+// -----turf details controller-----//
 
 const turfdetails = asyncHandler(async (req, res) => {
   try {
@@ -371,6 +385,7 @@ const turfdetails = asyncHandler(async (req, res) => {
   }
 });
 
+// -----turf data by id controller-----//
 const turfData = asyncHandler(async (req, res) => {
   const Id = req.params.id;
   try {
@@ -396,6 +411,8 @@ const turfData = asyncHandler(async (req, res) => {
     throw error;
   }
 });
+
+// -----edit turf data controller-----//
 
 const editTurfData = asyncHandler(async (req, res) => {
   try {
@@ -441,6 +458,8 @@ const editTurfData = asyncHandler(async (req, res) => {
   }
 });
 
+// -----booking list controller-----//
+
 const bookingList = asyncHandler(async (req, res) => {
   const ownerId = req.params.id;
   const page = req.query.page || 1;
@@ -480,6 +499,7 @@ function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
+// ----- confirm booking controller-----//
 
 const confirmBooking = asyncHandler(async (req, res) => {
   try {
@@ -497,6 +517,7 @@ const confirmBooking = asyncHandler(async (req, res) => {
   }
 });
 
+// -----reject booking controller-----//
 const rejectBooking = asyncHandler(async (req, res) => {
   try {
     const Id = req.params.id;
@@ -569,6 +590,7 @@ const addedChatTurf = async (req, res) => {
   }
 };
 
+// -----time hiding controller-----//
   const hideTime = async (req, res) => {
 
     console.log('kitty');
@@ -602,10 +624,11 @@ const addedChatTurf = async (req, res) => {
   }
 };
 
+// ----- time unhide controller-----//
 
 const unHideTime = async (req, res) => {
 
-  console.log('kitty');
+  
 try {
   const { venueId, timeId } = req.params;
 
@@ -638,7 +661,7 @@ try {
 
 
 
-
+// -----owner count controller-----//
 
 const ownerCountData = asyncHandler(async (req, res) => {
   try {
@@ -665,6 +688,8 @@ const ownerCountData = asyncHandler(async (req, res) => {
     throw error;
   }
 });
+
+// -----ownerMonthlyBookings controller-----//
 
 const ownerMonthlyBookings = asyncHandler(async (req, res) => {
   try {
@@ -707,7 +732,7 @@ const ownerMonthlyBookings = asyncHandler(async (req, res) => {
 
 
 
-
+// -----report controller-----//
 
 const ownerGeneratePDFReport = asyncHandler(async (req, res) => {
   try {

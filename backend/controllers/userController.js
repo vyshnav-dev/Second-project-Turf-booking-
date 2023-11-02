@@ -20,6 +20,7 @@ import { Stripe } from "stripe";
 
 import dotenv from 'dotenv';
 
+// ----- login controller-----//
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -51,6 +52,7 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
+// ----- verify otp controller-----//
 const verifyOTP = asyncHandler(async (req, res) => {
   const { email, otp } = req.body;
 
@@ -244,6 +246,8 @@ const registerUser = asyncHandler(async (req, res) => {
   res.status(200).json({ user });
 });
 
+
+// -----logout controller-----//
 const logoutUser = asyncHandler(async (req, res) => {
   res.cookie("jwt", "", {
     httpOnly: true,
@@ -252,6 +256,7 @@ const logoutUser = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "User Logged out" });
 });
 
+// -----profile controller-----//
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = {
     _id: req.user._id,
@@ -262,6 +267,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "User profile" });
 });
 
+// -----update profile controller-----//
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
   console.log(req.file);
@@ -293,6 +299,8 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
+// ----- jwt check controller-----//
+
 const checkAuth = asyncHandler(async (req, res) => {
   const token = req.cookies.jwt;
 
@@ -308,6 +316,8 @@ const checkAuth = asyncHandler(async (req, res) => {
   }
 });
 
+// ----- block check controller-----//
+
 const getUserStatus = asyncHandler(async (req, res) => {
   const userId = req.params.Id; // Get user ID from the route parameter
   const user = await User.findById(userId);
@@ -318,6 +328,8 @@ const getUserStatus = asyncHandler(async (req, res) => {
     res.status(404).json({ message: "User not found" });
   }
 });
+
+// ----- turf data controller-----//
 
 const userTurfData = asyncHandler(async (req, res) => {
   const { page, limit, filter } = req.query;
@@ -352,6 +364,7 @@ const userTurfData = asyncHandler(async (req, res) => {
   }
 });
 
+// -----turf data by id controller-----//
 
 const userTurfDetails = asyncHandler(async (req, res) => {
   const turfId = req.params.id;
@@ -369,6 +382,8 @@ const userTurfDetails = asyncHandler(async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+// -----booking details controller-----//
 
 const bookingDetails = asyncHandler(async (req, res) => {
   console.log('sdccsdv',req.body);
@@ -409,6 +424,8 @@ const bookingDetails = asyncHandler(async (req, res) => {
     res.status(500).json({ message: "Booking failed" });
   }
 });
+
+// -----booking history controller-----//
 
 const bookHistory = asyncHandler(async (req, res) => {
   const userId = req.params.id;
@@ -518,6 +535,7 @@ const getChatsUser = async (req, res) => {
   }
 };
 
+// -----search bar controller-----//
 const searchTurfname = async (req, res) => {
   try {
     const { searchTerm } = req.query;
@@ -545,9 +563,9 @@ const searchTurfname = async (req, res) => {
   }
 };
 
-
+// -----user landing page data controller-----//
 const userLandData = asyncHandler(async (req, res) => {
-  console.log("toooo");
+  
   try {
     const turf = await Turf.find(
       {},
@@ -572,6 +590,7 @@ const userLandData = asyncHandler(async (req, res) => {
   }
 });
 
+// ----- payment  controller-----//
 
 dotenv.config();
 
@@ -610,7 +629,7 @@ const payment = asyncHandler(async(req, res)=>{
     }
 })
 
-
+// -----default location controller-----//
 
 const getUniqueLocations = async (req, res) => {
   try {
@@ -624,7 +643,7 @@ const getUniqueLocations = async (req, res) => {
   }
 };
 
-
+// -----filter turf location controller-----//
 
 const filterTurfByLocation = async (req, res) => {
   
@@ -650,6 +669,7 @@ const filterTurfByLocation = async (req, res) => {
   }
 };
 
+// -----booking cancel controller-----//
 
 const bookingCancel = asyncHandler(async (req, res) => {
   try {
