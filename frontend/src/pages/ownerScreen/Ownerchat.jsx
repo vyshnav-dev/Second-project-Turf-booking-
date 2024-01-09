@@ -274,7 +274,7 @@ function Ownerchat() {
         ) : (
           <div className="owchat-icon" onClick={toggleChat}>
             <i
-              style={{ color: "white" }}
+              style={{ color: "green" }}
               className="fa-regular fa-comment-dots"
             ></i>
           </div>
