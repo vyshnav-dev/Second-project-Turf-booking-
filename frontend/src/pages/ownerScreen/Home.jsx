@@ -582,7 +582,7 @@ function Home() {
         bordered
         hover
         responsive
-        variant="light"
+        variant="dark"
       >
         <thead>
           <tr>
