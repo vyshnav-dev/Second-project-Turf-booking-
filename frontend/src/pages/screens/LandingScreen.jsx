@@ -133,7 +133,7 @@ function LandingScreen() {
             <p>
               Once you’ve found the perfect ground, court or gym, Connect with
               the venue through the Book Now Button to make online booking &
-              secure easier paymen
+              secure easier payment
             </p>
           </div>
           <div className="raja" style={{ fontSize: "1rem", display: "flex" }}>

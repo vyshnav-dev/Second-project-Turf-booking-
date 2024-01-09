@@ -236,10 +236,10 @@ function Ownerchat() {
                 </div>
                 <div
                   onClick={toggleChat}
-                  style={{ backgroundColor: "#a262da", borderColor: "#a262da" }}
+                  style={{ backgroundColor: "#4a67d1", borderColor: "#4a67d1" }}
                 >
                   <i
-                    style={{ fontSize: "30px", backgroundColor: "#a262da" }}
+                    style={{ fontSize: "30px", backgroundColor: "#4a67d1" }}
                     className="fa-solid fa-arrow-right-from-bracket"
                   ></i>
                 </div>

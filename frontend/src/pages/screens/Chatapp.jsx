@@ -145,10 +145,10 @@ function Chatapp() {
                 </div>
                 <div
                   onClick={toggleChat}
-                  style={{ backgroundColor: "#540996" }}
+                  style={{ backgroundColor: "#4e8270" }}
                 >
                   <i
-                    style={{ fontSize: "30px", backgroundColor: "#540996" }}
+                    style={{ fontSize: "30px", backgroundColor: "#4e8270" }}
                     className="fa-solid fa-arrow-right-from-bracket"
                   ></i>
                 </div>

@@ -350,6 +350,7 @@ function Home() {
 
   return (
     <>
+    <div style={{backgroundColor:'white',height:"100vh"}}>
       <div
         style={{ display: "flex", justifyContent: "end", paddingRight: "5rem" }}
       >
@@ -698,6 +699,7 @@ function Home() {
         </tbody>
       </Table>
       <Ownerchat />
+      </div>
     </>
   );
 }

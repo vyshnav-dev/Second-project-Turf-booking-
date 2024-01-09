@@ -59,6 +59,8 @@ const Profile = () => {
 
   
   return (
+    <>
+    <div style={{marginTop:'-48px',backgroundColor:'white',height:'90vh'}}>
     <FormContainer  className="form-container">
       <div>
       <h1 style={{color:'blue', textAlign:'center'}}> Owner Profile</h1>
@@ -121,6 +123,8 @@ const Profile = () => {
         {isLoading && <Loader />}
       </Form>
     </FormContainer>
+    </div>
+    </>
   );
 };
 

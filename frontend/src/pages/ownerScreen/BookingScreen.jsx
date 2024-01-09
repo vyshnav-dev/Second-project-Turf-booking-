@@ -135,7 +135,8 @@ function BookingScreen() {
 
   return (
     <>
-      <h3 style={{ textAlign: "center", color: "white" }}>Turf Booking List</h3>
+    <div style={{backgroundColor:'white',height:'90vh'}}>
+      <h3 style={{ textAlign: "center", color: "black" }}>Turf Booking List</h3>
       <div
         style={{
           display: "flex",
@@ -247,6 +248,7 @@ function BookingScreen() {
         >
           Next
         </Button>
+      </div>
       </div>
     </>
   );

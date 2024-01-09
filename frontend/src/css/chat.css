@@ -66,7 +66,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #540996;
+    background-color: #4e8270;
     color: #fff;
     padding: 10px;
   }
@@ -145,7 +145,7 @@
   
   /* Style for the send button */
   .chat-input button {
-    background-color: #540996;
+    background-color: #4e8270;
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -167,7 +167,7 @@
   }
   
   .chat-messages::-webkit-scrollbar-thumb {
-    background-color: #540996;
+    background-color: #4e8270;
     border-radius: 4px;
   }
   
