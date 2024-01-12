@@ -14,12 +14,18 @@ import { toast } from "react-toastify";
 import Loader from "../../components/Loader";
 import "../../css/Login.css";
 import { GoogleLogin } from "@react-oauth/google";
-
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import Modal from 'react-bootstrap/Modal';
 import jwt_decode from "jwt-decode";
 
 function LoginScreen() {
   const [email, setEmail] = useState("");
+  const [femail,setFEmail] = useState('');
   const [password, setPassword] = useState("");
+  const [sndloading, setSendLoading] = useState(false)
+    const [openFirst, setOpenFrist] = useState(false)
+    const [error,setError] = useState('');
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -73,6 +79,46 @@ function LoginScreen() {
     }
   };
 
+  const openModal = () => {
+    setOpenFrist(true)
+  }
+  
+  const closeModal = () => {
+    setOpenFrist(false)
+    setSendLoading(false)
+   }
+  
+  
+   const handleSend = async () => {
+    setSendLoading(true)
+    const emailData = { email: femail }
+    try {
+      const result = await axios.post('/users/forgotpassword', emailData)
+  
+      if (result.data) {
+        await Swal.fire({
+          title: 'Success!',
+          text: 'Your password reset link has been sent to your email. Please check',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        })
+      }
+      setEmail('')
+      closeModal()
+    } catch (error) {
+      setSendLoading(false)
+      setError(error.response?.data?.message)
+  
+      setTimeout(() => {
+        setError('')
+      },3000)
+  }
+  }
+  
+  const handleEmail = (e) =>{
+    setFEmail(e.target.value)
+  }
+
   return (
     // <Container className="logdiv">
     <>
@@ -119,6 +165,9 @@ function LoginScreen() {
               New Owner ? <Link to="/owner/register">Register</Link>
             </div>
           </form>
+          <label onClick={openModal} style={{ color: "white" ,display:'flex',justifyContent:'center'}}>
+            Forgot Password?
+          </label>
           <div
             className="googleAuth"
             style={{ marginTop: "4rem", marginLeft: "5rem", width: "50rem" }}
@@ -130,6 +179,38 @@ function LoginScreen() {
               />
             </div>
           </div>
+          <Modal
+          
+          show={openFirst}
+          onHide={closeModal}
+         
+        >
+          <div className="">
+          <h4 style={{textAlign:'center'}}>Forgot Password</h4>
+            <p style={{ color: "red" }}>{error}</p>
+            <div>
+              <input
+                style={{borderColor:'black'}}
+                id="email"
+                onChange={handleEmail}
+                placeholder="Enter Email "
+              ></input>
+            </div>
+            <div style={{ display: "flex", justifyContent: "end" ,padding:'10px'}}>
+              <div>
+                <Button onClick={handleSend} Button variant="primary">
+                  Send
+                </Button>
+              </div>
+
+              <div>
+                <Button variant="secondary" onClick={closeModal}>
+                  Close
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Modal>
         </div>
       </div>
     </>

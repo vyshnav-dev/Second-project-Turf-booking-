@@ -196,9 +196,13 @@ const registerUser = asyncHandler(async (req, res) => {
   const confirmPassword = req.body.confirmPassword.trim();
   // const {name,email,password,confirmPassword} =req.body
   //if password is good
-  if (!password || password.length < 6) {
+  if (!password || password.length < 6 ||
+    !/[A-Z]/.test(password) ||
+    !/[a-z]/.test(password) ||
+    !/\d/.test(password) ||
+    !/[^A-Za-z0-9]/.test(password)) {
     res.status(400);
-    throw new Error("Password must contain 6 characters");
+    throw new Error("Password should be at least 6 characters and should contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
   }
   if (!phone || phone.length < 10) {
     res.status(400);
@@ -245,6 +249,92 @@ const registerUser = asyncHandler(async (req, res) => {
   }
   res.status(200).json({ user });
 });
+
+// -----forgot password controller-----//
+
+const forgotPassword = asyncHandler(async (req, res) => {
+  console.log("potaaa");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+/
+
+  if (!emailRegex.test(req.body.email)) {
+    return res.status(400).json({ message: 'Invalid email format' })
+  }
+
+  try {
+    const user = await User.findOne({ email: req.body.email })
+
+    if (!user) {
+      return res.status(404).json({ message: 'User does not exist' })
+    }
+
+    // generateToken(res, user._id)
+    const transporter = nodemailer.createTransport({
+      host: "smtp.ethereal.email",
+      port: 587,
+      auth: {
+        user: process.env.SENDER_EMAIL,
+        pass: process.env.GENARATE_ETHREAL_PASSWORD,
+      },
+    });
+
+    var mailOptions = {
+      from: process.env.SENDER_EMAIL,
+      to: user.email,
+      subject: 'change password requst',
+      html: `<p> the message from the WanderIn.if you want to change the password ?
+               </p> <a href="https://spexcart.online/login/${user._id}">Click here to reset your password</a>`
+    }
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log('Error sending email:', error)
+        res.status(500).json({ message: 'Error sending email' })
+      } else {
+        console.log('Email sent:', info.response)
+        return res.send({ Status: 'Success' })
+      }
+    })
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ message: 'Internal server error' })
+  }
+})
+
+
+const changePassword = asyncHandler(async (req, res) => {
+  console.log(req.params.id)
+  console.log(req.body)
+  const user = await User.findById(req.params.id)
+  const { password, Cpassword } = req.body
+
+  if (!password || !Cpassword || password !== Cpassword) {
+    return res.status(400).json({ message: 'Passwords do not match' })
+  }
+
+  if (
+    password.length < 4 ||
+    !/[A-Z]/.test(password) ||
+    !/[a-z]/.test(password) ||
+    !/\d/.test(password) ||
+    !/[^A-Za-z0-9]/.test(password)
+  ) {
+    return res.status(400).json({
+      message:
+        'Password should be at least 4 characters and should contain at least one uppercase letter, one lowercase letter, one number, and one special character.'
+    })
+  }
+
+
+
+  if (user) {
+    user.password =password;
+    await user.save() // Update user in the database
+    return res.status(200).json({ message: 'Password changed successfully' })
+  } else {
+    return res.status(404).json({ message: 'User not found' })
+  }
+})
+
 
 
 // -----logout controller-----//
@@ -711,4 +801,6 @@ export {
   getUniqueLocations,
   filterTurfByLocation,
   bookingCancel,
+  forgotPassword,
+  changePassword
 };

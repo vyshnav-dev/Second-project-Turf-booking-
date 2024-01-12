@@ -6,7 +6,7 @@ import RegisterScreen from "../pages/screens/RegisterScreen.jsx";
 import Otp from "../pages/screens/Otp.jsx";
 import PrivateRoute from "../components/PrivateRouter.jsx";
 import ProfileScreen from "../pages/screens/ProfileScreen.jsx";
-
+import Forgotpassword from '../pages/screens/Forgotpassword.jsx';
 import Details from "../pages/screens/Details.jsx";
 import Booking from "../pages/screens/Booking.jsx";
 import LandingScreen from "../pages/screens/LandingScreen.jsx";
@@ -23,6 +23,7 @@ const UserRouter = () => {
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/otp" element={<Otp />} />
+        <Route path='/login/:id' element={<Forgotpassword/>}/>
 
         <Route index={true} path="/" element={<LandingScreen />} />
 

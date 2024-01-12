@@ -28,6 +28,8 @@ import {
   getUniqueLocations,
   filterTurfByLocation,
   bookingCancel,
+  forgotPassword,
+  changePassword
 } from "../controllers/userController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
@@ -41,6 +43,11 @@ router.get("/resendOtp", protect, resendOtp);
 router.post("/googlelogin", googleAuth);
 // router.get('/userinfo',userDatainfo)
 router.get("/checkAuth", checkAuth);
+
+router.post('/forgotpassword',forgotPassword)
+
+router.put('/changePassword/:id', changePassword)
+
 
 router.get("/status/:Id", getUserStatus);
 
